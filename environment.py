@@ -37,7 +37,9 @@ def single_env_creator(
 
     # Episode stats have the returns before normalization
     env = EpisodeStats(env)
-    env = pufferlib.postprocess.ClipAction(env)  # NOTE: this changed actions space
+    # env = pufferlib.postprocess.ClipAction(env)  # NOTE: this changed actions space
+
+    print(f"env: {env}")
 
     # NOTE: The pretrained models do NOT work well with newly instantiated norm obs wrappers
     #   because the mean and std are not updated. These should be handled by the pretrained models
@@ -52,6 +54,7 @@ def single_env_creator(
     if pufferl is True:
         env = pufferlib.emulation.GymnasiumPufferEnv(env=env)
 
+    breakpoint()
     return env
 
 

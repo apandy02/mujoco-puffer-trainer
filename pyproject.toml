@@ -18,7 +18,7 @@ classifiers = [
 
 # versions are pinned by pufferlib
 dependencies = [
-    "mujoco<3",
+    "mujoco>=3.2.7",
     "pufferlib@git+https://github.com/kywch/PufferLib@dev",
     "carbs@git+https://github.com/kywch/carbs.git@fixes",
     # "carbs@git+https://github.com/imbue-ai/carbs.git",

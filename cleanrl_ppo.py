@@ -60,6 +60,7 @@ if __name__ == "__main__":
     device = torch.device("cuda" if torch.cuda.is_available() and args.cuda else "cpu")
 
     # env setup
+    single_env = cleanrl_env_creator(args.env_id, args.capture_video, args.gamma, 0)
     envs = gymnasium.vector.SyncVectorEnv(
         [
             cleanrl_env_creator(args.env_id, args.capture_video, args.gamma, i)
