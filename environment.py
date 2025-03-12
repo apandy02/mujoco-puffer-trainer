@@ -17,7 +17,7 @@ def single_env_creator(
     capture_video,
     video_dir=None,
     idx=None,
-    # norm_obs=False,  # to be removed
+    norm_obs=False,  # to be removed
     pufferl=False,
     # gymnasium provided norm_reward
     rms_norm_reward=True,
