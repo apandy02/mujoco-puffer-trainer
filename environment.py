@@ -27,6 +27,7 @@ def single_env_creator(
     simp_norm_reward_bias=0.0,
 ):
     # Allow video capture only during eval
+    print(f"env_name: {env_name}")
     if capture_video is True and idx == 0:
         if video_dir is None:
             video_dir = f"{env_name}_{int(time.time())}"
@@ -54,7 +55,6 @@ def single_env_creator(
     if pufferl is True:
         env = pufferlib.emulation.GymnasiumPufferEnv(env=env)
 
-    breakpoint()
     return env
 
 

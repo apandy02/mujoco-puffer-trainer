@@ -3,7 +3,7 @@ requires = ["cython>=3.0", "pip>=23.0", "setuptools>=61.0", "wheel", "numpy==1.2
 
 [project]
 name = "mujoco-trainer"
-requires-python = ">=3.11"
+requires-python = ">=3.11,<3.12"
 version = "0.0.1"
 description = "Train mujoco with pufferlib"
 keywords = []

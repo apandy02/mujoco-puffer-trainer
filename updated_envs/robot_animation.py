@@ -24,7 +24,7 @@ class RobotAnimationEnv(MujocoEnv, utils.EzPickle):
         target_qvel: np.ndarray,
         num_q: int,
         reset_noise_scale: float = 0.1,
-        render_mode: str = "human",
+        render_mode: str = "rgb_array",
         **kwargs,
     ):
         utils.EzPickle.__init__(
@@ -79,7 +79,6 @@ class RobotAnimationEnv(MujocoEnv, utils.EzPickle):
             reward: The reward from the environment.
             terminated: Whether the episode is terminated.
         """
-        print(f"action: {action}")
         self.do_simulation(action, self.frame_skip)
         reward = self._imitation_reward()
         self.frame_number += 1
@@ -128,10 +127,7 @@ class RobotAnimationEnv(MujocoEnv, utils.EzPickle):
         """
         Reward function that penalizes the agent for deviating from the target qpos and qvel.
         """
-        #print(f"target_qpos: {self.target_qpos[self.frame_number]}")
-        #print(f"target_qvel: {self.target_qvel[self.frame_number]}")
-        print(f"qpos: {self.data.qpos}")
-        #print(f"qvel: {self.data.qvel}"))
+        breakpoint()
         qpos_diff = np.linalg.norm(self.data.qpos - self.target_qpos[self.frame_number], axis=0)
         qvel_diff = np.linalg.norm(self.data.qvel - self.target_qvel[self.frame_number], axis=0)
         return -0.65*np.sum(qpos_diff) - 0.35*np.sum(qvel_diff)
